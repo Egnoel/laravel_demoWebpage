@@ -6,7 +6,9 @@
     <h2 class="text-gray-300 font-bold text-lg">{{$job->title}}</h2>
     <p class="text-gray-500">This job pays {{$job->salary}} per year</p>
 
-    <p class="mt-6">
-        <x-button href="/jobs/{{$job->id}}/edit">Edit Job</x-button>
-    </p>
+    @can('edit')
+        <p class="mt-6">
+            <x-button href="/jobs/{{$job->id}}/edit">Edit Job</x-button>
+        </p>
+    @endcan
 </x-layout>
